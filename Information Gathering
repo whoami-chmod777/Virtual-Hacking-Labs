@@ -7,14 +7,133 @@
 
 -- Passive Information Gathering --
 
+• DNS Enumeration
+• E-Mail Harvesting
+• WWW and Social Media
+• Company Information
 
 
+- DNS Enumeration -
+
+• A (Address) Record: Maps a domain name to its corresponding IPv4 address
+• MX (Mail Exchange) Record: Specifies the mail servers responsible for receiving email for the domain
+• CNAME (Canonical Name) Record: Creates an alias from one domain name to another
+• NS (Name Server) Record: Identifies the authoritative DNS servers for the domain
+• SOA (Start of Authority) Record: Contains administrative information about the domain, including its primary name server and update times
+• PTR (Pointer) Record: Resolves an IP address to a hostname (used in reverse DNS lookups)
+• TXT (Text) Record: Stores human-readable text or machine data like SPF rules for the domain
+
+whois google.com
+
+nslookup google.com
+nslookup -type=mx google.com 
+nslookup -type=txt google.com 
+nslookup -type=any google.com 8.8.8.8
+
+host google.com 
+host 142.251.209.142
+host 8.8.8.8
+
+host -t ns google.com
+host -t axfr -l google.com ns1.google.com
+
+dig -h
+dig -t mx google.com
+dig -t any google.com @8.8.8.8
+dig axfr @nsztm1.digi.ninja zonetransfer.me
+
+fierce -h
+fierce --domain google.com
+fierce --domain google.com --subdomain-file subdomains.txt
+
+dnsenum -h
+dnsenum google.com
+
+dnsrecon -h
+dnsrecon -d google.com
+
+sublist3r -h
+sublist3r -d google.com
+sublist3r -d google.com -b -t 100 -e google -v
 
 
+Wildcard domains
+A Wildcard DNS record is a DNS record that will match any request when there is no record available that explicitly matches that request. 
+The Wildcard DNS record is usually defined using an asterisk as the first label: *.domain.com. 
+
+www.domain.com     A      1.1.1.1
+vpn.domain.com     A      1.1.1.2
+test.domain.com    A      1.1.1.3
+*.domain.com       A      1.1.1.1
 
 
+- E-Mail Harvesting -
+
+theHarvester
+theHarvester -h
+theHarvester -d cisco.com -b google -l 100
+theHarvester -d cisco.com -b all -l 100
+
+theHarvester -d cisco.com -b google -l 100
+theHarvester -d cisco.com -b bing -l 100
+theHarvester -d cisco.com -b yahoo -l 100
+theHarvester -d cisco.com -b baidu -l 100
+theHarvester -d cisco.com -b bingapi -l 100
+theHarvester -d cisco.com -b crtsh -l 100
+theHarvester -d cisco.com -b dogpile -l 100
+theHarvester -d cisco.com -b googleCSE -l 100
+theHarvester -d cisco.com -b hunter -l 100
+theHarvester -d cisco.com -b linkedin -l 100
+theHarvester -d cisco.com -b twitter -l 100
+theHarvester -d cisco.com -b netcraft -l 100
+theHarvester -d cisco.com -b yahoo -l 100
 
 
+recon-ng --version
+recon-ng
+marketplace refresh
+
+marketplace search
+marketplace search hibp
+marketplace install recon/contacts-credentials/hibp_breach
+
+keys add hibp_api [API key]
+modules load recon/contacts-credentials/hibp_breach
+
+info
+options set SOURCE info@microsoft.com
+run
+show credentials
+
+
+- WWW and Social Media -
+
+https://www.google.com
+https://www.google.com/maps
+https://www.exploit-db.com/google-hacking-database/
+https://www.shodan.io
+https://www.tineye.com
+https://www.netcraft.com
+https://pastebin.com
+https://haveibeenpwned.com
+
+
+- Company Information -
+
+LinkedIn
+Company registrations
+Financial information and documents
+OpenCorporates.com
+Crunchbase
+
+
+https://www.dnb.com/duns-number.html
+https://sam.gov
+https://www.sec.gov/edgar/searchedgar/companysearch.html
+https://businesssearch.sos.ca.gov
+https://esos.nv.gov/EntitySearch/OnlineEntitySearch
+https://icis.corp.delaware.gov/Ecorp/EntitySearch/NameSearch.aspx
+https://find-and-update.company-information.service.gov.uk
 
 
 
